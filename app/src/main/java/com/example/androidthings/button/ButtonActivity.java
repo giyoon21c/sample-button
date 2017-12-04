@@ -26,6 +26,7 @@ import com.google.android.things.pio.PeripheralManagerService;
 import android.util.Log;
 import android.view.KeyEvent;
 
+
 import java.io.IOException;
 
 /**
@@ -42,6 +43,8 @@ public class ButtonActivity extends Activity {
 
     private Gpio mLedGpio;
     private ButtonInputDriver mButtonInputDriver;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,8 @@ public class ButtonActivity extends Activity {
         } catch (IOException e) {
             Log.e(TAG, "Error configuring GPIO pins", e);
         }
+
+
     }
 
     @Override
@@ -83,6 +88,7 @@ public class ButtonActivity extends Activity {
         if (keyCode == KeyEvent.KEYCODE_SPACE) {
             // Turn off the LED
             setLedValue(false);
+            Log.i(TAG, "KeyUp event");
             return true;
         }
 
