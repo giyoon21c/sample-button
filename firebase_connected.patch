@@ -1,0 +1,33 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision aab6f57c50bfdd80f9d65c230ef2fef65b985e88)
++++ app/build.gradle	(revision )
+@@ -37,5 +37,9 @@
+ 
+ dependencies {
+     implementation 'com.google.android.things.contrib:driver-button:0.3'
++    implementation 'com.google.firebase:firebase-database:11.0.4'
+     compileOnly 'com.google.android.things:androidthings:0.6-devpreview'
+ }
++
++
++apply plugin: 'com.google.gms.google-services'
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision aab6f57c50bfdd80f9d65c230ef2fef65b985e88)
++++ build.gradle	(revision )
+@@ -24,6 +24,7 @@
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
++        classpath 'com.google.gms:google-services:3.1.0'
+     }
+ }
+ 

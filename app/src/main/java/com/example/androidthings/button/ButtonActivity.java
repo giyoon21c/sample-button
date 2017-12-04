@@ -23,6 +23,9 @@ import com.google.android.things.contrib.driver.button.Button;
 import com.google.android.things.contrib.driver.button.ButtonInputDriver;
 import com.google.android.things.pio.Gpio;
 import com.google.android.things.pio.PeripheralManagerService;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -44,6 +47,9 @@ public class ButtonActivity extends Activity {
     private Gpio mLedGpio;
     private ButtonInputDriver mButtonInputDriver;
 
+    // Write a message to the database
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("message");
 
 
     @Override
@@ -77,6 +83,7 @@ public class ButtonActivity extends Activity {
         if (keyCode == KeyEvent.KEYCODE_SPACE) {
             // Turn on the LED
             setLedValue(true);
+            myRef.setValue("Bye, World!");
             return true;
         }
 
@@ -89,6 +96,8 @@ public class ButtonActivity extends Activity {
             // Turn off the LED
             setLedValue(false);
             Log.i(TAG, "KeyUp event");
+            myRef.setValue("Hello, World!");
+
             return true;
         }
 
